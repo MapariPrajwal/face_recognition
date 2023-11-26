@@ -12,9 +12,6 @@ cam.set(cv2.CAP_PROP_FOURCC,cv2.VideoWriter_fourcc(*'MJPG'))
 
 font=cv2.FONT_HERSHEY_SIMPLEX
 
-#knownEncodings=[donFaceEncode,nanFaceEncode,penceFaceEncode,paulFaceEncode]
-#names=['Donald Trump','Nancy Pelosi','Mike Pence','Paul McWhorter']
-
 with open('train.pkl','rb') as f:
     names=pickle.load(f)
     knownEncodings=pickle.load(f)
@@ -27,15 +24,15 @@ while True:
 
     for faceLocation,unknownEncoding in zip(faceLocations,unknownEncodings):
         top,right,bottom,left=faceLocation
-        #print(faceLocation)
+        print(faceLocation)
         cv2.rectangle(unknownFace,(left,top),(right,bottom),(255,255,127),2)
         name='Unknown Person'
         matches=FR.compare_faces(knownEncodings,unknownEncoding)
-        #print(matches)
+        print(matches)
         if True in matches:
             matchIndex=matches.index(True)
-            #print(matchIndex)
-            #print(names[matchIndex])
+            print(matchIndex)
+            print(names[matchIndex])
             name=names[matchIndex]
         cv2.putText(unknownFace,name,(left,top),font,.75,(255,127,255),2)
         #Add Attendence Sheet
