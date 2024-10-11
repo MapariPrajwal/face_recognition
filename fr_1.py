@@ -2,7 +2,6 @@ import cv2
 import os
 import face_recognition as FR
 import pickle
-
 kimageDIR='C://Users/prajw/Python/DemoImage/known'
 knownEncodings=[]
 names=[]

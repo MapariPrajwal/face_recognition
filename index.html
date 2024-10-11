@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <button id="aboutBtn">About Us</button>
+        <div class="left">
+            <h3 class="heading">Team</h3>
+            <h3 class="heading">Hello world,</h3>
+            <h3 class="heading">Face detection</h3>
+        </div>
+        
+        <div class="right">
+            <div>
+                <div class="output">
+
+                </div>
+                <button id="runBtn">Detect Faces</button>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('runBtn').addEventListener('click', function(e) {
+            fetch('/runcode', {
+                method: 'POST'
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Python script executed successfully!');
+                } else {
+                    throw new Error('Failed to execute Python script');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to execute Python script');
+            });
+        });
+    </script>
+</body>
+</html>
