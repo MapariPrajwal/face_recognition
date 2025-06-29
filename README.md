@@ -22,6 +22,7 @@ A real-time face recognition system built with Python to automate attendance log
 
 ## 📁 Project Structure
 
+```
 face_recognition/
 ├── Images/ # Folder with known face images
 │ ├── prajwal.jpg
@@ -32,7 +33,7 @@ face_recognition/
 ├── utils.py # Helper functions
 ├── README.md # Project documentation
 └── requirements.txt # Python dependencies
-
+```
 
 ---
 
